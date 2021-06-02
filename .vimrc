@@ -6,6 +6,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
@@ -13,7 +15,6 @@ Plugin 'w0rp/ale'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/fzf.vim'
 Plugin 'pangloss/vim-javascript'
@@ -26,6 +27,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'rizzatti/dash.vim'
 Plugin 'fatih/vim-go'
 Plugin 'kaicataldo/material.vim'
+Plugin 'vim-vdebug/vdebug'
 
 call vundle#end()
 
@@ -70,12 +72,12 @@ set colorcolumn=
 nmap <leader>. :bprevious<cr>
 nmap <leader>/ :bnext<cr>
 
-" Map a shortcut to delete trailing whitespace
-nmap <leader>ws :%s/\s\+$//e<cr>
+" Delete trailing whitespace on file save
+autocmd BufWritePre * %s/\s\+$//e
 
 " Set document width to 80 characters, but don't autowrap
 set textwidth=80
-set nowrap
+" set nowrap
 
 " Show 7 lines above/below the cursor
 set scrolloff=7
