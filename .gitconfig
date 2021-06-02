@@ -1,0 +1,17 @@
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    sync = pull upstream main
+    co = checkout
+    update = "git checkout main; git pull upstream; git checkout -; git rebase main;"
+    pr = "!f() { sh ~/git-pr.sh ${1}; }; f"
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = Carson Covell
+	email = ccovell@rsglab.com
+[credential]
+	helper = osxkeychain
